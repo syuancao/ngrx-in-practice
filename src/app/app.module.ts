@@ -19,6 +19,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers } from './auth/reducers';
 import { metaReducers } from './reducers';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -36,7 +37,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}),
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
@@ -54,7 +55,8 @@ const routes: Routes = [
         strictStateSerializability: true,
       },
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    MatButtonModule,
   ],
   bootstrap: [AppComponent],
 })
