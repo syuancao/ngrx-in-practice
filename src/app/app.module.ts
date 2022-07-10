@@ -17,9 +17,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { reducers } from './auth/reducers';
+
 import { metaReducers } from './reducers';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -37,7 +37,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'}),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
@@ -46,16 +46,7 @@ const routes: Routes = [
     MatListModule,
     MatToolbarModule,
     AuthModule.forRoot(),
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
-        strictActionSerializability: true,
-        strictStateSerializability: true,
-      },
-    }),
-    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     MatButtonModule,
   ],
   bootstrap: [AppComponent],
