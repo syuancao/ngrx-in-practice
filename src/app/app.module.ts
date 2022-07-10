@@ -20,11 +20,13 @@ import { environment } from '../environments/environment';
 
 import { metaReducers, reducers } from './reducers';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'courses',
     loadChildren: () => import('./courses/courses.module').then((m) => m.CoursesModule),
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
